@@ -1,0 +1,22 @@
+.services{
+    padding: 6rem 0;
+
+    &-virtual{
+        text-align: center;
+        padding: 2rem 0;
+        color: #16161a;
+
+        &__title{
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+        &__image{
+            width: 50%;
+            margin: 1rem auto;
+            background-color: #16161a;
+            border-radius: .5rem;
+            padding: 1rem 2rem;
+        }
+    }
+}
