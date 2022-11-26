@@ -1,22 +1,77 @@
-.services{
-    padding: 6rem 0;
+.services {
+  padding: 6rem 0;
 
-    &-virtual{
-        text-align: center;
-        padding: 2rem 0;
-        color: #16161a;
+  &-virtual {
+    text-align: center;
+    padding: 2rem 0;
+    color: #16161a;
 
-        &__title{
-            font-size: 2rem;
-            font-weight: 500;
-            margin-bottom: 2rem;
-        }
-        &__image{
-            width: 50%;
-            margin: 1rem auto;
-            background-color: #16161a;
-            border-radius: .5rem;
-            padding: 1rem 2rem;
-        }
+    &__title {
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
     }
+    &__image {
+      width: 50%;
+      margin: 1rem auto;
+      background-color: #16161a;
+      border-radius: 0.5rem;
+      padding: 1rem 2rem;
+    }
+  }
+  &-store {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5rem 0;
+    &__item {
+      width: 27%;
+      padding: 20px;
+      border-radius: 0.3rem;
+      transition: all 0.4s ease-in-out;
+
+      &:hover {
+        transition: all 0.4s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      }
+      &:hover &-icon {
+        background-color: #164ddf;
+        color: #fff;
+        transition: all 0.4s ease-in-out;
+      }
+
+      &-icon {
+        transition: all 0.4s ease-in-out;
+        font-weight: 500;
+        color: #25a5da;
+        padding: 0.5rem;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        border-radius: 0.5rem;
+        background-color: #16161a;
+      }
+      &-title {
+        font-size: 1.3rem;
+        font-weight: 500;
+        margin: 1.5rem 0;
+        color: #16161a;
+      }
+    }
+
+    @media screen and (max-width: 992px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      &__item {
+        width: 45%;
+      }
+    }
+    @media screen and (max-width: 550px) {
+      flex-direction: column;
+      &__item {
+        width: 95%;
+        margin: 0.5rem auto;
+      }
+    }
+  }
 }
