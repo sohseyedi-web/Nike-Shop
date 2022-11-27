@@ -3,10 +3,10 @@ import Left from "../../../assets/left.png";
 import Right from "../../../assets/nike-adapt-bb.png";
 import ReactCompareImage from "react-compare-image";
 import {
-  RiMapPin2Fill,
-  RiCalendarCheckLine,
-  RiCalendarEventLine,
-} from "react-icons/ri";
+  TbCashBanknote,
+  TbCheck,
+  TbPlaneInflight,
+} from "react-icons/tb";
 
 const Services = () => {
   return (
@@ -20,13 +20,13 @@ const Services = () => {
             <ReactCompareImage leftImage={Left} rightImage={Right} />
           </div>
         </div>
-        <div className="services-store">
+        <div className="services-store" dir="rtl">
           <div className="services-store__item">
             <div className="services-store__item-icon">
-              <RiMapPin2Fill size={34} />
+              <TbPlaneInflight size={34} />
             </div>
             <h4 className="services-store__item-title">
-              یک مکان را انتخاب کنید
+              ارسال اکسپرس
             </h4>
             <p className="services-store__item-desc">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
@@ -36,10 +36,10 @@ const Services = () => {
           </div>
           <div className="services-store__item">
             <div className="services-store__item-icon">
-              <RiMapPin2Fill size={34} />
+              <TbCheck size={34} />
             </div>
             <h4 className="services-store__item-title">
-              یک مکان را انتخاب کنید
+              محصولات اصل
             </h4>
             <p className="services-store__item-desc">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
@@ -49,10 +49,10 @@ const Services = () => {
           </div>
           <div className="services-store__item">
             <div className="services-store__item-icon">
-              <RiMapPin2Fill size={34} />
+              <TbCashBanknote size={34} />
             </div>
             <h4 className="services-store__item-title">
-              یک مکان را انتخاب کنید
+              خرید به صورت قسطی
             </h4>
             <p className="services-store__item-desc">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با

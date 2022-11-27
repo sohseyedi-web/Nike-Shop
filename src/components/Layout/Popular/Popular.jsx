@@ -40,10 +40,7 @@ const Popular = () => {
           </Swiper>
         </div>
         <div className="popular-container__box">
-          <div
-            className="popular-container__box-item item-active"
-            id={activeSlide.id}
-          >
+          <div className="popular-container__box-item">
             <div className="popular-container__box-item__image">
               {activeSlide === "" ? (
                 <img src={One} alt={"نایک"} />
