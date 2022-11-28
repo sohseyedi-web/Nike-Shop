@@ -1,13 +1,40 @@
-.products{
-    padding: 6rem 0;
+.products {
+  padding: 6rem 0;
 
-    &-container{
-
-        &__wraps{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
+  &-container {
+    &__wraps {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
+    &__line {
+      margin: 3rem 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ddd;
+      height: 2px;
+
+      &-icon {
+        width: 35px;
+        height: 35px;
+        background-color: #aaa;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: scale(1);
+        transition: transform 0.4s ease-in-out;
+
+        &:hover {
+          color: #fff;
+          transform: scale(1.1);
+          transition: transform 0.4s ease-in-out;
+        }
+      }
+    }
+  }
 }
