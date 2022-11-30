@@ -26,12 +26,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transform: scale(1);
+        transform: scale(1) rotate(0);
         transition: transform 0.4s ease-in-out;
 
-        &:hover {
-          color: #fff;
-          transform: scale(1.1);
+        &.active-icon {
+          transform: rotate(180deg);
           transition: transform 0.4s ease-in-out;
         }
       }

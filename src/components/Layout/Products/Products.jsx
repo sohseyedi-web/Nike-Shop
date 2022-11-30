@@ -3,9 +3,25 @@ import { productList } from "./../../../data/dataItem";
 import Product from "./../../Common/product/Product";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Products = () => {
-  const prodctFilter = productList.filter((p) => p.id <= 6);
+  const [numberProduct, setNumberProduct] = useState(6);
+  const [active, setActive] = useState(false);
+
+  const productLen = productList.length;
+
+  const onLoadproduct = () => {
+    if (active === false) {
+      setActive(!active);
+      setNumberProduct(productLen);
+    } else {
+      setNumberProduct(6);
+      setActive(!active);
+    }
+  };
+
+  const prodctFilter = productList.filter((p) => p.id <= numberProduct);
 
   return (
     <section className="products" dir="rtl">
@@ -16,9 +32,16 @@ const Products = () => {
           ))}
         </div>
         <div className="products-container__line">
-          <Link to={"/auth"} className="products-container__line-icon">
+          <div
+            className={
+              active === true
+                ? "products-container__line-icon active-icon"
+                : "products-container__line-icon"
+            }
+            onClick={onLoadproduct}
+          >
             <RiArrowDownSLine size={30} />
-          </Link>
+          </div>
         </div>
       </div>
     </section>
