@@ -19,13 +19,24 @@ const Popular = () => {
       <div className="popular-container container">
         <div className="popular-container__scroll">
           <Swiper
+            breakpoints={{
+              992: {
+                slidesPerView: 3,
+              },
+              600: {
+                slidesPerView: 2,
+              },
+              0: {
+                slidesPerView: 1,
+              },
+            }}
             navigation={true}
             modules={[Pagination, Navigation]}
             loopFillGroupWithBlank={true}
-            slidesPerView={3}
             spaceBetween={40}
             loop={true}
             slidesPerGroup={1}
+            slidesPerView={3}
             className="popular-container__scroll-box"
           >
             {productImage.map((slide, i) => (

@@ -3,6 +3,9 @@
 
   &-container {
     &__scroll {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       &-box {
         width: 100%;
 
@@ -61,6 +64,56 @@
             line-height: 1.9;
             color: #16161a;
             font-weight: 500;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 992px) {
+      &__box {
+        &-item {
+          &__image {
+            width: 35%;
+            img {
+              width: 400px;
+            }
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 768px) {
+      &__scroll {
+        &-box {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          &__slide {
+            width: 100%;
+          }
+        }
+      }
+      &__box {
+        &-item {
+          flex-direction: column;
+          &__image {
+            width: 90%;
+            margin: 0 auto;
+            img {
+              width: 300px;
+            }
+          }
+          &__detail {
+            width: 90%;
+            margin-top: 1.5rem;
+
+            &-name {
+              font-size: 1.25rem;
+            }
+            &-desc {
+              font-size: 1rem;
+            }
           }
         }
       }
