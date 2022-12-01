@@ -9,6 +9,7 @@ import {
 } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { addItemtoCart, removeItemCart } from "../../redux/reducers";
+import { comma } from "./../../utils/comma";
 
 const Navbar = () => {
   const { productItem } = useSelector((state) => state.nike);
@@ -23,6 +24,11 @@ const Navbar = () => {
       setColor(false);
     }
   };
+
+  const totalPrice = productItem.reduce(
+    (price, total) => price + total.quantity * total.price,
+    0
+  );
 
   window.addEventListener("scroll", changeBgcolor);
 
@@ -51,6 +57,7 @@ const Navbar = () => {
         </div>
 
         <div
+          dir="rtl"
           className={
             sidebar === true
               ? "navs-container__sidebar side-active"
@@ -58,16 +65,16 @@ const Navbar = () => {
           }
         >
           <div className="navs-container__sidebar-header">
+            <div className="navs-container__sidebar-header__text">سبد خرید</div>
             <span
               className="navs-container__sidebar-header__icon"
               onClick={() => setSidebar(!sidebar)}
             >
               <RiCloseFill size={28} />
             </span>
-            <div className="navs-container__sidebar-header__text">سبد خرید</div>
           </div>
           <hr />
-          <div className="navs-container__sidebar-body" dir="rtl">
+          <div className="navs-container__sidebar-body">
             {productItem.length === 0 ? (
               <div className="text-center pt-5">سبد خرید خالی است</div>
             ) : (
@@ -89,6 +96,15 @@ const Navbar = () => {
                 </div>
               ))
             )}
+          </div>
+          <hr />
+          <div className="navs-container__sidebar-footer">
+            <span className="navs-container__sidebar-footer__total">
+              جمع :{" "}
+            </span>
+            <span className="navs-container__sidebar-footer__num">
+              {comma(totalPrice)} تومان
+            </span>
           </div>
         </div>
       </div>
