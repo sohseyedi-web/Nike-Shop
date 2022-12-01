@@ -5,10 +5,16 @@ import {
   RiSearchLine,
   RiHeart3Line,
   RiShoppingBasketLine,
+  RiCloseFill,
 } from "react-icons/ri";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemtoCart, removeItemCart } from "../../redux/reducers";
 
 const Navbar = () => {
+  const { productItem } = useSelector((state) => state.nike);
   const [color, setColor] = useState(false);
+  const [sidebar, setSidebar] = useState(false);
+  const dispatch = useDispatch();
 
   const changeBgcolor = () => {
     if (window.scrollY >= 80) {
@@ -31,11 +37,58 @@ const Navbar = () => {
           <div className="navs-container__actions-icon">
             <RiHeart3Line size={28} />
           </div>
-          <div className="navs-container__actions-icon">
+          <div
+            className="navs-container__actions-icon"
+            onClick={() => setSidebar(!sidebar)}
+          >
             <span>
               <RiShoppingBasketLine size={28} />
             </span>
-            <span className="navs-container__actions-icon__num">0</span>
+            <span className="navs-container__actions-icon__num">
+              {productItem.length}
+            </span>
+          </div>
+        </div>
+
+        <div
+          className={
+            sidebar === true
+              ? "navs-container__sidebar side-active"
+              : "navs-container__sidebar"
+          }
+        >
+          <div className="navs-container__sidebar-header">
+            <span
+              className="navs-container__sidebar-header__icon"
+              onClick={() => setSidebar(!sidebar)}
+            >
+              <RiCloseFill size={28} />
+            </span>
+            <div className="navs-container__sidebar-header__text">سبد خرید</div>
+          </div>
+          <hr />
+          <div className="navs-container__sidebar-body" dir="rtl">
+            {productItem.length === 0 ? (
+              <div className="text-center pt-5">سبد خرید خالی است</div>
+            ) : (
+              productItem.map((item) => (
+                <div
+                  className="navs-container__sidebar-body__item"
+                  key={item.id}
+                >
+                  <img src={item.img} alt={item.name} title={item.name} />
+                  <div className="navs-container__sidebar-body__item-actions">
+                    <button onClick={() => dispatch(addItemtoCart(item))}>
+                      +
+                    </button>
+                    <span>{item.quantity}</span>
+                    <button onClick={() => dispatch(removeItemCart(item))}>
+                      -
+                    </button>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </div>

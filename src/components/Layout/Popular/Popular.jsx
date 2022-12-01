@@ -12,7 +12,6 @@ import "swiper/css/navigation";
 const Popular = () => {
   const [activeSlide, setActiveSlide] = useState("");
 
-  console.log(activeSlide);
 
   return (
     <section className="popular" dir="rtl">
